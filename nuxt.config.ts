@@ -8,4 +8,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    apiSecret: '123',
+
+    public: {
+      apiBase: '/api'
+    }
+  }
 })
