@@ -14,5 +14,12 @@ export default defineNuxtConfig({
     public: {
       apiBase: '/api'
     }
+  },
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode'
+  ],
+  colorMode: {
+    classSuffix: ''
   }
 })
