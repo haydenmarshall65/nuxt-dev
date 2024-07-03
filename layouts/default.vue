@@ -1,7 +1,4 @@
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig();
-const appConfig = useAppConfig();
-console.log(appConfig)
 </script>
 
 <template>

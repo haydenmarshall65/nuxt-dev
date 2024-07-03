@@ -8,6 +8,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  routeRules: {
+    '/': { ssr: false }
+  },
   runtimeConfig: {
     apiSecret: '123',
 
@@ -17,9 +20,5 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode'
   ],
-  colorMode: {
-    classSuffix: ''
-  }
 })
