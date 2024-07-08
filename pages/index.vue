@@ -19,7 +19,7 @@ function writeToScreen(message: string) {
 function sendMessage(message: string) {
     writeToScreen(`SENT: ${message}`);
     if(websocket.value){
-        websocket.value.send(message);
+        websocket.value.send(JSON.stringify({id: 1}));
     }
 }
 
@@ -27,10 +27,7 @@ const beginWsConnection = () => {
     websocket.value = new WebSocket(wsUri.value);
     websocket.value.onopen = (e) => {
     writeToScreen("CONNECTED");
-    sendMessage("ping");
-    pingInterval = setInterval(() => {
-        sendMessage("ping");
-        }, 5000);
+    sendMessage("1");
     };
 
     websocket.value.onclose = (e) => {
@@ -58,6 +55,7 @@ const closeWsConnection = () => {
     <div id="output" class="border-4 border-dashed"></div>
     <button class="bg-black text-white p-2 rounded-lg" @click="beginWsConnection">Start</button>
     <button class="bg-black text-white p-2 rounded-lg" @click="closeWsConnection">Close</button>
+    <button class="bg-black text-white p-2 rounded-lg" @click="sendMessage('1')">Send Message</button>
 </template>
 
 <style scoped>
